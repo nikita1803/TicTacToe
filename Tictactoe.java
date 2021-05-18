@@ -11,6 +11,7 @@ public class Tictactoe
 		char choice = choose();
 		char[] ticBoard = showBoard(board);
 		move(ticBoard , choice);
+		showBoard(board);
 	}
 	public static char[] createBoard()
 	{
@@ -62,7 +63,7 @@ public class Tictactoe
 		int value = sc.nextInt();
 		if(board[value] == ' ')
 		{
-			System.out.println("Ready to move");
+			board[value] = choose;
 		}
 		else
 		{
