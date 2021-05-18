@@ -10,8 +10,9 @@ public class Tictactoe
 		char[] board = createBoard();
 		char choice = choose();
 		char[] ticBoard = showBoard(board);
-		move(ticBoard , choice);
-		showBoard(board);
+		toss();
+		//move(ticBoard , choice);
+		//showBoard(board);
 	}
 	public static char[] createBoard()
 	{
@@ -74,5 +75,17 @@ public class Tictactoe
 			System.out.println("Invalid input please input the valid digit");
 		}
 		return board;
+	}
+	public static void toss() 
+	{
+		int toss = (int) Math.floor(Math.random() * 10) % 2+1;
+		switch(toss) 
+		{
+			case 1://Head
+				System.out.println("player 1 win the toss so player 1 play the first");
+			break;
+			case 2://Tail
+				System.out.println("computer win the toss so the computer play the first");
+		}
 	}
 }
