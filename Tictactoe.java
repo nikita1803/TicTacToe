@@ -8,7 +8,9 @@ public class Tictactoe
 	{
 		System.out.println("Welcome in Tic tac toe game");
 		char[] board = createBoard();
-		choose();
+		char choice = choose();
+		char[] ticBoard = showBoard(board);
+		move(ticBoard , choice);
 		showBoard(board);
 	}
 	public static char[] createBoard()
@@ -20,7 +22,7 @@ public class Tictactoe
 		}
 		return board;
 	}
-	public static void choose()
+	public static char choose()
 	{
 		Scanner sc = new Scanner(System.in);
 		char computerVariable = 0 ;
@@ -42,9 +44,9 @@ public class Tictactoe
 		{
 			System.out.println("Invalid input please input the valid charcter");
 		}
-		
+		return playerChoose;
 	}
-	public static void showBoard(char[] board)
+	public static char[] showBoard(char[] board)
 	{
 		System.out.println(board[1] + " | " + board[2] + " | " + board[3]);
 		System.out.println("--------------");
@@ -52,5 +54,24 @@ public class Tictactoe
 		System.out.println("--------------");
 		System.out.println(board[7] + " | " + board[8] + " | " + board[9]);
 		System.out.println("--------------");
+		return board;
+	}
+	public static char[] move(char[] board , char choose)
+	{
+		Scanner sc = new Scanner(System.in);
+		System.out.println("Enter the value between 1 to 9 to move");
+		int value = sc.nextInt();
+		for(int i = 1; i < board.length; i++)
+		{
+			if(board[value] == ' ')
+			{
+				board[value] = choose;
+			}
+		}
+		if(value < 1 || value > 9)
+		{
+			System.out.println("Invalid input please input the valid digit");
+		}
+		return board;
 	}
 }
