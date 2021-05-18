@@ -11,7 +11,6 @@ public class Tictactoe
 		char choice = choose();
 		char[] ticBoard = showBoard(board);
 		move(ticBoard , choice);
-		showBoard(board);
 	}
 	public static char[] createBoard()
 	{
@@ -61,12 +60,13 @@ public class Tictactoe
 		Scanner sc = new Scanner(System.in);
 		System.out.println("Enter the value between 1 to 9 to move");
 		int value = sc.nextInt();
-		for(int i = 1; i < board.length; i++)
+		if(board[value] == ' ')
 		{
-			if(board[value] == ' ')
-			{
-				board[value] = choose;
-			}
+			System.out.println("Ready to move");
+		}
+		else
+		{
+			System.out.println("Your desired place is not empty");
 		}
 		if(value < 1 || value > 9)
 		{
